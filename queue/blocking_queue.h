@@ -8,7 +8,7 @@
 #include <stdexcept>
 #include <cassert>
 
-#include "common/error.h"
+#include "conlib/common/error.h"
 
 namespace conlib {
 

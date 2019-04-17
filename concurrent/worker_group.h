@@ -3,8 +3,9 @@
 #include <thread>
 #include <cassert>
 
-#include "common/common.h"
-#include "queue/blocking_queue.h"
+#include "conlib/common/error.h"
+#include "conlib/common/common.h"
+#include "conlib/queue/blocking_queue.h"
 
 namespace conlib {
 

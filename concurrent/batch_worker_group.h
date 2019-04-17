@@ -8,9 +8,9 @@
 #include <cassert>
 #include <queue>
 
-#include "common/error.h"
-#include "common/common.h"
-#include "common/vector_tuple.h"
+#include "conlib/common/error.h"
+#include "conlib/common/common.h"
+#include "conlib/common/vector_tuple.h"
 
 namespace conlib {
 
