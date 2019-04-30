@@ -12,26 +12,29 @@ enum LockType {
 
 typedef pthread_rwlock_t RWMutex;
 
-class RWLock {
+class ReadLock {
 public:
-    explicit RWLock(RWMutex &mutex, LockType type) {
+    explicit ReadLock(RWMutex &mutex) {
         m_mutex = &mutex;
-        switch (type) {
-            case READ: {
-                pthread_rwlock_rdlock(m_mutex);
-                break;
-            }
-            case WRITE: {
-                pthread_rwlock_wrlock(m_mutex);
-                break;
-            }
-            default: {
-                assert(false && "Illegal Lock Type");
-            }
-        }
+        pthread_rwlock_rdlock(m_mutex);
     }
 
-    ~RWLock() {
+    ~ReadLock() {
+        pthread_rwlock_unlock(m_mutex);
+    }
+
+private:
+    RWMutex *m_mutex;
+};
+
+class WriteLock {
+public:
+    explicit WriteLock(RWMutex &mutex) {
+        m_mutex = &mutex;
+        pthread_rwlock_wrlock(m_mutex);
+    }
+
+    ~WriteLock() {
         pthread_rwlock_unlock(m_mutex);
     }
 
