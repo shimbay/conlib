@@ -9,6 +9,7 @@
 #include <cassert>
 
 #include "conlib/common/error.h"
+#include "conlib/common/common.h"
 
 namespace conlib {
 
