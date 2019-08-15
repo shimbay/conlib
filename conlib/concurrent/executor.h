@@ -1,6 +1,8 @@
 #pragma once
 
-#include "worker_group.h"
+#include <functional>
+
+#include "conlib/concurrent/worker_group.h"
 
 namespace conlib {
 

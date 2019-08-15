@@ -1,13 +1,14 @@
-#include "conlib/concurrent/executor.h"
+#include <csignal>
+#include <gtest/gtest.h>
 
-using namespace conlib;
+void signal_handler(int signal) { std::exit(0); }
 
-int main() {
-  auto fun = []() { std::cout << "Hello world!" << std::endl; };
+int main(int argc, char *argv[]) {
+  testing::InitGoogleTest(&argc, argv);
+  int i = RUN_ALL_TESTS();
 
-  auto &&executor = Executor(4);
-
-  executor.submit(fun);
-
-  usleep(1000000);
+  std::signal(SIGILL, signal_handler);
+  std::signal(SIGSEGV, signal_handler);
+  std::signal(SIGABRT, signal_handler);
+  return i;
 }

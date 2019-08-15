@@ -6,8 +6,6 @@ namespace conlib {
 
 template <class... Ts> struct VectorTuple {
   explicit VectorTuple(size_t cap = 0) {}
-
-  VectorTuple() = default;
 };
 
 template <class T, class... Ts> struct VectorTuple<T, Ts...> : VectorTuple<Ts...> {
