@@ -24,8 +24,6 @@ target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
 target_compile_options(
   ${PROJECT_NAME}
   INTERFACE -fPIC
-            -ggdb
-            -Wno-deprecated-declarations
 )
 target_link_libraries(${PROJECT_NAME} INTERFACE dl pthread)
 
